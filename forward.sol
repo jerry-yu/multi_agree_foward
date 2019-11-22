@@ -133,8 +133,8 @@ contract Forward {
         emit Called(_target);
 		assembly {
             let ptr := mload(0x40)
-            calldatacopy(ptr, 0x64, sub(calldatasize, 0x64))
-            switch call(gas, _target, 0, ptr, sub(calldatasize, 0x64), ptr, 0)
+            calldatacopy(ptr, 0x24, sub(calldatasize, 0x24))
+            switch call(gas, _target, 0, ptr, sub(calldatasize, 0x24), ptr, 0)
             case 0 { revert(0, 0) }
         }
 	}
