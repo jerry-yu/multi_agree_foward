@@ -131,7 +131,7 @@ contract Forward {
 		delete call_agreed[_target][_args];
 
         emit Called(_target);
-		assembly {
+	assembly {
             let ptr := mload(0x40)
             calldatacopy(ptr, 0x24, sub(calldatasize, 0x24))
             switch call(gas, _target, 0, ptr, sub(calldatasize, 0x24), ptr, 0)
